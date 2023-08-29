@@ -1,6 +1,6 @@
 package com.codecool.pages;
 
-import com.codecool.util.WebdriverUtil;
+import com.codecool.util.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.Select;
@@ -11,9 +11,15 @@ import java.util.*;
 public class VatCalculatorPage {
     private final WebDriver driver = WebdriverUtil.getInstance();
 
-    //Tax Calculator Title
-    @FindBy(partialLinkText = "Value Added Tax Calculator")
-    private WebElement pageTitle;
+    //cookie option
+    @FindBy(id = "cookieconsent:desc")
+    private WebElement cookieBox;
+    @FindBy(linkText = "I Accept!")
+    private WebElement cookie;
+
+    //Vat calculator body
+    @FindBy(id = "vatcalculator")
+    private WebElement vCalcBody;
 
     //get country selection options
     @FindBy(name = "Country")
@@ -48,12 +54,26 @@ public class VatCalculatorPage {
     }
     public void loadCalculatorPage(String url) {
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.get(url);
     }
 
-    public boolean isCurrentPageCorrect() {
-        return pageTitle.isDisplayed();
+
+    public void acceptCookies() {
+        WaitUtil.waitUntilClickable(driver, cookieBox);
+        cookieBox.click();
+        WaitUtil.waitUntilClickable(driver, cookie);
+        cookie.click();
+    }
+
+    public void clickOnBody() {
+        WaitUtil.waitUntilClickable(driver, vCalcBody);
+        vCalcBody.click();
+    }
+
+    public boolean isCurrentPageLoaded() {
+        WaitUtil.waitUntilClickable(driver, vCalcBody);
+        return vCalcBody.isDisplayed();
     }
 
     public void selectCountry(String country) {

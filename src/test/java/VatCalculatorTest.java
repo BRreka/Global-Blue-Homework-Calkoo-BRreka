@@ -15,11 +15,15 @@ public class VatCalculatorTest {
     }
     @Test
     public void checkIfPageIsLoaded() {
-        assertTrue(vatCalculatorPage.isCurrentPageCorrect());
+        vatCalculatorPage.acceptCookies();
+        vatCalculatorPage.clickOnBody();
+        assertTrue(vatCalculatorPage.isCurrentPageLoaded());
     }
-
+/*
     @AfterAll
     public static void tearDown() {
         WebdriverUtil.quit();
     }
+
+ */
 }
