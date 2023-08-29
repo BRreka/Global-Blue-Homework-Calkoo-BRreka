@@ -7,7 +7,8 @@ import org.openqa.selenium.support.*;
 import java.time.Duration;
 
 public class VatCalculatorPage {
-    WebDriver driver = WebdriverUtil.getInstance();
+    private final WebDriver driver = WebdriverUtil.getInstance();
+
     public VatCalculatorPage() {
         PageFactory.initElements(driver, this);
     }
