@@ -48,4 +48,13 @@ public class VatCalculatorPage {
         countries.selectByVisibleText(country);
     }
 
+    public WebElement selectVatPercent(String value) {
+        WebElement currentVat = null;
+        for (WebElement vat : vatPercentOptions) {
+            if(vat.getAttribute(value).equals(value)) {
+                currentVat = vat;
+            }
+        }
+        return currentVat;
+    }
 }
