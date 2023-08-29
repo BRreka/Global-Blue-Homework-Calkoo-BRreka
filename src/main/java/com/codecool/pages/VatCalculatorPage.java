@@ -11,6 +11,10 @@ import java.util.*;
 public class VatCalculatorPage {
     private final WebDriver driver = WebdriverUtil.getInstance();
 
+    //Tax Calculator Title
+    @FindBy(partialLinkText = "Value Added Tax Calculator")
+    private WebElement pageTitle;
+
     //get country selection options
     @FindBy(name = "Country")
     private Select countries;
@@ -46,6 +50,10 @@ public class VatCalculatorPage {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(url);
+    }
+
+    public boolean isCurrentPageCorrect() {
+        return pageTitle.isDisplayed();
     }
 
     public void selectCountry(String country) {

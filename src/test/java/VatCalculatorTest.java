@@ -11,9 +11,12 @@ public class VatCalculatorTest {
     @BeforeEach
     public void setUp() {
         vatCalculatorPage = new VatCalculatorPage();
+        vatCalculatorPage.loadCalculatorPage("https://www.calkoo.com/en/vat-calculator");
     }
-
-
+    @Test
+    public void checkIfPageIsLoaded() {
+        assertTrue(vatCalculatorPage.isCurrentPageCorrect());
+    }
 
     @AfterAll
     public static void tearDown() {
