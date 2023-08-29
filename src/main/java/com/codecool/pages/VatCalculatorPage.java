@@ -44,4 +44,8 @@ public class VatCalculatorPage {
         driver.get(url);
     }
 
+    public void selectCountry(String country) {
+        countries.selectByVisibleText(country);
+    }
+
 }
