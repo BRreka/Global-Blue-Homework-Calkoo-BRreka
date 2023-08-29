@@ -1,3 +1,3 @@
-package com.codecool;
+package com.codecool.pages;
 public class VatCalculatorPage {
 }
