@@ -12,18 +12,30 @@ public class VatCalculatorTest {
     public void setUp() {
         vatCalculatorPage = new VatCalculatorPage();
         vatCalculatorPage.loadCalculatorPage("https://www.calkoo.com/en/vat-calculator");
-    }
-    @Test
-    public void checkIfPageIsLoaded() {
         vatCalculatorPage.acceptCookies();
         vatCalculatorPage.clickOnBody();
+    }
+
+    //Test if an element is loaded on the page
+    @Test
+    public void checkIfPageIsLoaded() {
         assertTrue(vatCalculatorPage.isCurrentPageLoaded());
     }
-/*
-    @AfterAll
-    public static void tearDown() {
+
+    //Tests for Finland VAT rate
+    @Test
+    public void testFinlandVatRate10WherePriceWithoutVATValueIs10() {
+        vatCalculatorPage.selectCountry("Finland");
+        vatCalculatorPage.clickVatPercent10();
+        vatCalculatorPage.clickWithoutVatOption();
+        vatCalculatorPage.enterValueWithoutVat("10");
+        assertEquals("1.00", vatCalculatorPage.getValueFromVatSum());
+        assertEquals("11.00",vatCalculatorPage.getValueFromWithVat());
+    }
+
+    @AfterEach
+    public void tearDown() {
         WebdriverUtil.quit();
     }
 
- */
 }

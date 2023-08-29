@@ -23,11 +23,21 @@ public class VatCalculatorPage {
 
     //get country selection options
     @FindBy(name = "Country")
-    private Select countries;
+    private WebElement countriesOrigin;
 
-    //group select VAT percent option fields
-    @FindBy(name = "VAT")
-    private List<WebElement> vatPercentOptions;
+    //vat options **separate**
+    @FindBy(id = "VAT_5")
+    private WebElement vat5Percent;
+    @FindBy(id = "VAT_8")
+    private WebElement vat8Percent;
+    @FindBy(id = "VAT_10")
+    private WebElement vat10Percent;
+    @FindBy(id = "VAT_14")
+    private WebElement vat14Percent;
+    @FindBy(id = "VAT_20")
+    private WebElement vat20Percent;
+    @FindBy(id = "VAT_24")
+    private WebElement vat24Percent;
 
     //radio button options for calculating VAT
     @FindBy(id = "F1")
@@ -77,28 +87,20 @@ public class VatCalculatorPage {
     }
 
     public void selectCountry(String country) {
+        WaitUtil.waitUntilClickable(driver, countriesOrigin);
+        Select countries = new Select(countriesOrigin);
         countries.selectByVisibleText(country);
-    }
-
-    public WebElement selectVatPercent(String value) {
-        WebElement currentVat = null;
-        for (WebElement vat : vatPercentOptions) {
-            if(vat.getAttribute(value).equals(value)) {
-                currentVat = vat;
-            }
         }
-        return currentVat;
-    }
 
     public void clickWithoutVatOption() {
-        priceWithoutVATRadioButton.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", priceWithoutVATRadioButton);
     }
     public void clickTaxValueOption() {
-        valueAddedTaxRadioButton.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", valueAddedTaxRadioButton);
     }
 
     public void clickWithVatOption() {
-        priceWithVATIncludedRadioButton.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", priceWithVATIncludedRadioButton);
     }
 
     public void enterValueWithoutVat(String value) {
@@ -120,10 +122,29 @@ public class VatCalculatorPage {
     }
 
     public String getValueFromVatSum() {
-        return vatSumField.getText();
+        return vatSumField.getAttribute("value");
     }
 
     public String getValueFromWithVat() {
-        return priceWithVatField.getText();
+        return priceWithVatField.getAttribute("value");
+    }
+
+    public void clickVatPercent5() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat5Percent);
+    }
+    public void clickVatPercent8() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat8Percent);
+    }
+    public void clickVatPercent10() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat10Percent);
+    }
+    public void clickVatPercent14() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat14Percent);
+    }
+    public void clickVatPercent20() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat20Percent);
+    }
+    public void clickVatPercent24() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat24Percent);
     }
 }
