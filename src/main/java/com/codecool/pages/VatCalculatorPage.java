@@ -85,4 +85,17 @@ public class VatCalculatorPage {
     public boolean isErrorMessagePresent() {
         return errorMessage.isDisplayed();
     }
+
+    //get text of input field
+    public String getValueFromWithoutVat() {
+        return netPriceField.getText();
+    }
+
+    public String getValueFromVatSum() {
+        return vatSumField.getText();
+    }
+
+    public String getValueFromWithVat() {
+        return priceWithVatField.getText();
+    }
 }
