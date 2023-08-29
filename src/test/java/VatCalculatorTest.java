@@ -33,6 +33,15 @@ public class VatCalculatorTest {
         assertEquals("11.00",vatCalculatorPage.getValueFromWithVat());
     }
 
+    @Test
+    public void testFinlandVatRate10WherePriceWithoutVATValueIsNegative() {
+        vatCalculatorPage.selectCountry("Finland");
+        vatCalculatorPage.clickVatPercent10();
+        vatCalculatorPage.clickWithoutVatOption();
+        vatCalculatorPage.enterValueWithoutVat("-10");
+        assertTrue(vatCalculatorPage.isErrorMessagePresent());
+    }
+
     @AfterEach
     public void tearDown() {
         WebdriverUtil.quit();
