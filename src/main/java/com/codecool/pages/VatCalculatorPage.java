@@ -1,6 +1,7 @@
 package com.codecool.pages;
 
 import com.codecool.util.WebdriverUtil;
+import org.checkerframework.common.value.qual.StringVal;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.Select;
@@ -67,5 +68,15 @@ public class VatCalculatorPage {
 
     public void clickWithVatOption() {
         priceWithVATIncludedRadioButton.click();
+    }
+
+    public void enterValueWithoutVat(String value) {
+        netPriceField.sendKeys(value);
+    }
+    public void enterValueVatSum(String value) {
+        vatSumField.sendKeys(value);
+    }
+    public void enterValueWithVat(String value) {
+        priceWithVatField.sendKeys(value);
     }
 }
