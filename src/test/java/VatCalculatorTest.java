@@ -12,7 +12,9 @@ public class VatCalculatorTest {
     public void setUp() {
         vatCalculatorPage = new VatCalculatorPage();
     }
-    //tests
+
+
+
     @AfterAll
     public static void tearDown() {
         WebdriverUtil.quit();

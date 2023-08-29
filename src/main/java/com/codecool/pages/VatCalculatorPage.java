@@ -35,6 +35,10 @@ public class VatCalculatorPage {
     @FindBy(id = "Price")
     private WebElement priceWithVatField;
 
+    //error message
+    @FindBy(xpath = "//span[text()='Negative values are invalid for a pie chart.']")
+    private WebElement errorMessage;
+
     public VatCalculatorPage() {
         PageFactory.initElements(driver, this);
     }
@@ -77,5 +81,8 @@ public class VatCalculatorPage {
     }
     public void enterValueWithVat(String value) {
         priceWithVatField.sendKeys(value);
+    }
+    public boolean isErrorMessagePresent() {
+        return errorMessage.isDisplayed();
     }
 }
