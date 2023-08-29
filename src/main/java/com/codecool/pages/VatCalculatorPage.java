@@ -57,4 +57,15 @@ public class VatCalculatorPage {
         }
         return currentVat;
     }
+
+    public void clickWithoutVatOption() {
+        priceWithoutVATRadioButton.click();
+    }
+    public void clickTaxValueOption() {
+        valueAddedTaxRadioButton.click();
+    }
+
+    public void clickWithVatOption() {
+        priceWithVATIncludedRadioButton.click();
+    }
 }
