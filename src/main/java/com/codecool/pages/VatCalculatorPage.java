@@ -6,5 +6,7 @@ import org.openqa.selenium.support.*;
 
 public class VatCalculatorPage {
     WebDriver driver = WebdriverUtil.getInstance();
-
+    public VatCalculatorPage() {
+        PageFactory.initElements(driver, this);
+    }
 }
