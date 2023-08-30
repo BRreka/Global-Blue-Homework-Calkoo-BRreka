@@ -6,7 +6,6 @@ import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
-import java.util.*;
 
 public class VatCalculatorPage {
     private final WebDriver driver = WebdriverUtil.getInstance();
@@ -62,8 +61,9 @@ public class VatCalculatorPage {
         PageFactory.initElements(driver, this);
     }
     public void loadCalculatorPage(String url) {
+        int numOfSeconds = 30;
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(numOfSeconds));
         driver.get(url);
     }
 
