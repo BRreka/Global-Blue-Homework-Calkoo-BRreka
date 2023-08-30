@@ -1,0 +1,9 @@
+Bug: Element Interception Exception
+
+Issue:
+When running tests via normal execution, due to the intrusive advertisements on the website, sometimes
+I get an "element intercepted exception" despite installing and ad blocker, and using Wait for the elements to load.
+It is unpredictable, because normally, these tests work with execution.
+
+How to reproduce:
+Unfortunately there is no reliable way to reproduce it, it occurs randomly.

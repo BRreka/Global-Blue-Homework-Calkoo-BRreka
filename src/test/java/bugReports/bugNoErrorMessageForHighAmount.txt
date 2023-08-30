@@ -1,0 +1,15 @@
+Bug: No Error message is shown for amounts higher than 999.999.999
+
+Issue:
+When executing test cases for input that is higher than 999.999.999, the API should have provided an error message,
+but there is none, it accepts them and calculates accordingly.
+
+Extra info:
+I cannot write numbers higher than 999.999.999 in these fields when testing manually.
+
+Example:
+When executing the test method for calculating Finland's 24% vat rate, when the without Vat field is provided with
+"2200000000", it shows no error message.
+
+How to reproduce:
+Run test methods for the amounts higher than 999.999.999.
