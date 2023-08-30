@@ -26,16 +26,10 @@ public class VatCalculatorPage {
     private WebElement countriesOrigin;
 
     //vat options **separate**
-    @FindBy(id = "VAT_5")
-    private WebElement vat5Percent;
-    @FindBy(id = "VAT_8")
-    private WebElement vat8Percent;
     @FindBy(id = "VAT_10")
     private WebElement vat10Percent;
     @FindBy(id = "VAT_14")
     private WebElement vat14Percent;
-    @FindBy(id = "VAT_20")
-    private WebElement vat20Percent;
     @FindBy(id = "VAT_24")
     private WebElement vat24Percent;
 
@@ -98,14 +92,14 @@ public class VatCalculatorPage {
         }
 
     public void clickWithoutVatOption() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", priceWithoutVATRadioButton);
+        checkNotInteractableElements(priceWithoutVATRadioButton);
     }
     public void clickTaxValueOption() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", valueAddedTaxRadioButton);
+        checkNotInteractableElements(valueAddedTaxRadioButton);
     }
 
     public void clickWithVatOption() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", priceWithVATIncludedRadioButton);
+        checkNotInteractableElements(priceWithVATIncludedRadioButton);
     }
 
     public void enterValueWithoutVat(String value) {
@@ -137,23 +131,17 @@ public class VatCalculatorPage {
         return priceWithVatField.getAttribute("value");
     }
 
-    public void clickVatPercent5() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat5Percent);
-    }
-    public void clickVatPercent8() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat8Percent);
-    }
     public void clickVatPercent10() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat10Percent);
+        checkNotInteractableElements(vat10Percent);
     }
     public void clickVatPercent14() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat14Percent);
-    }
-    public void clickVatPercent20() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat20Percent);
+        checkNotInteractableElements(vat14Percent);
     }
     public void clickVatPercent24() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat24Percent);
+        checkNotInteractableElements(vat24Percent);
+    }
+    private void checkNotInteractableElements(WebElement radioButton) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", radioButton);
     }
     public void clickResetButton() {
         resetButton.click();
