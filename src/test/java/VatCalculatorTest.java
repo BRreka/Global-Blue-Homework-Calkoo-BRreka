@@ -37,7 +37,7 @@ public class VatCalculatorTest {
         vatCalculatorPage.selectCountry("Finland");
         vatCalculatorPage.clickVatPercent10();
         vatCalculatorPage.clickWithVatOption();
-        vatCalculatorPage.enterValueWithoutVat("440");
+        vatCalculatorPage.enterValueWithVat("440");
         assertEquals("400.00", vatCalculatorPage.getValueFromWithoutVat());
         assertEquals("40.00", vatCalculatorPage.getValueFromVatSum());
     }
@@ -151,6 +151,17 @@ public class VatCalculatorTest {
         vatCalculatorPage.clickWithoutVatOption();
         vatCalculatorPage.enterValueWithoutVat("2200000000");
         assertTrue(vatCalculatorPage.isErrorMessage2Present());
+    }
+    @Test
+    public void testIfResetButtonWorks() {
+        vatCalculatorPage.selectCountry("Finland");
+        vatCalculatorPage.clickVatPercent14();
+        vatCalculatorPage.clickWithoutVatOption();
+        vatCalculatorPage.enterValueWithoutVat("3000");
+        vatCalculatorPage.clickResetButton();
+        assertTrue(vatCalculatorPage.getValueFromVatSum().isBlank());
+        assertTrue(vatCalculatorPage.getValueFromWithoutVat().isBlank());
+        assertTrue(vatCalculatorPage.getValueFromWithVat().isBlank());
     }
 
     @AfterEach

@@ -55,6 +55,9 @@ public class VatCalculatorPage {
     @FindBy(id = "Price")
     private WebElement priceWithVatField;
 
+    @FindBy(name = "clear")
+    private WebElement resetButton;
+
     //error message
     @FindBy(xpath = "//span[text()='Negative values are invalid for a pie chart.']")
     private WebElement errorMessage;
@@ -123,7 +126,7 @@ public class VatCalculatorPage {
 
     //get text of input field
     public String getValueFromWithoutVat() {
-        return netPriceField.getText();
+        return netPriceField.getAttribute("value");
     }
 
     public String getValueFromVatSum() {
@@ -151,5 +154,8 @@ public class VatCalculatorPage {
     }
     public void clickVatPercent24() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", vat24Percent);
+    }
+    public void clickResetButton() {
+        resetButton.click();
     }
 }
