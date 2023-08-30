@@ -23,3 +23,6 @@ For this project, I used Page-Object Model (POM), I separated the elements and S
 
 ## Bugs
 + I provided bug reports in "Global-Blue-Homework-Calkoo-BRreka/src/test/java/bugReports/" directory
+
+## Example for manual test only
++ The pie chart has no reliable way of selection, I would only test this manually.
