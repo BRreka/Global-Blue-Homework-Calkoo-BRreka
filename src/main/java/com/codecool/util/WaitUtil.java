@@ -7,6 +7,7 @@ import java.time.Duration;
 
 public class WaitUtil {
     public static void waitUntilClickable(WebDriver driver, WebElement element) {
-        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(element));
+        int numOfSeconds = 45;
+        new WebDriverWait(driver, Duration.ofSeconds(numOfSeconds)).until(ExpectedConditions.elementToBeClickable(element));
     }
 }
