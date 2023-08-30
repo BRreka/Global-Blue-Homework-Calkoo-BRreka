@@ -11,6 +11,7 @@ public class VatCalculatorTest {
     public void setUp() {
         vatCalculatorPage = new VatCalculatorPage();
         vatCalculatorPage.loadCalculatorPage("https://www.calkoo.com/en/vat-calculator");
+        vatCalculatorPage.dontConsentToUseData();
         vatCalculatorPage.acceptCookies();
         vatCalculatorPage.clickOnBody();
     }

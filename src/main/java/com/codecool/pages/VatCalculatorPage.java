@@ -51,6 +51,9 @@ public class VatCalculatorPage {
     @FindBy(name = "clear")
     private WebElement resetButton;
 
+    @FindBy(css = "[aria-label='Do not consent']")
+    private WebElement dontUseMyData;
+
     //error message
     @FindBy(xpath = "//span[text()='Negative values are invalid for a pie chart.']")
     private WebElement errorMessage;
@@ -145,5 +148,9 @@ public class VatCalculatorPage {
     }
     public void clickResetButton() {
         resetButton.click();
+    }
+    public void dontConsentToUseData() {
+        WaitUtil.waitUntilClickable(driver, dontUseMyData);
+        dontUseMyData.click();
     }
 }

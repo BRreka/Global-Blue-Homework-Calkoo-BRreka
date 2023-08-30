@@ -26,3 +26,9 @@ For this project, I used Page-Object Model (POM), I separated the elements and S
 
 ## Example for manual test only
 + The pie chart has no reliable way of selection, I would only test this manually.
+
+## Update
+I re-checked the tests a few hours after sending the link, and noticed there was a pop-up for data-usage consent
+for cookies, which I've never seen during working on this project. This might have been some sort of bug for me, 
+or something new, I will never know. I included the Selenium code to deal with the issue, which might make 
+the bug report of the Element Interception Error not actual anymore, as the test cases ran without any issue.
