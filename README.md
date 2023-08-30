@@ -17,7 +17,7 @@ For this project, I used Page-Object Model (POM), I separated the elements and S
 
 ## Challenges & Issues
 
-1. This website has a lot of intrusive ands, which was a challenge to resolve, as it blocked other elements I needed to access for automation. 
+1. This website has a lot of intrusive ads, which was a challenge to resolve, as it blocked other elements I needed to access for automation. 
 2. The radio buttons were tricky to interact with, I kept getting "Element not interactable" error with normal Selenium code, so I had to use JavaScriptExecutor to resolve this.
 3. I wanted to use dynamic selection for VAT percent radio buttons, in which I wanted to provide a number as an argument in a single method. I tried multiple solutions, but the elements never got found this way.
 
