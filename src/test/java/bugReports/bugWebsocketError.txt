@@ -1,0 +1,11 @@
+Bug: Websocket error - connection reset
+
+Issue:
+When running tests via normal execution, sometimes I get a "Websocket error - connection reset" message.
+It is somehow related to the Webdriver teardown method, it gets invoked too soon when it shouldn't.
+It occurs only in some of the test methods, which is also random.
+It is unpredictable, because normally, these tests work with execution.
+
+How to reproduce:
+Unfortunately there is no reliable way to reproduce it, it occurs randomly. However, when disabling the method with
+"@AfterEach" annotation, it never occurs.
