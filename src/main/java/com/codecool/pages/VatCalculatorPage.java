@@ -58,6 +58,8 @@ public class VatCalculatorPage {
     //error message
     @FindBy(xpath = "//span[text()='Negative values are invalid for a pie chart.']")
     private WebElement errorMessage;
+    @FindBy(xpath = "//span[text()='Values greater than 999.999.999 are invalid for a pie chart.']")
+    private WebElement errorMessage2;
 
     public VatCalculatorPage() {
         PageFactory.initElements(driver, this);
@@ -114,6 +116,9 @@ public class VatCalculatorPage {
     }
     public boolean isErrorMessagePresent() {
         return errorMessage.isDisplayed();
+    }
+    public boolean isErrorMessage2Present() {
+        return errorMessage2.isDisplayed();
     }
 
     //get text of input field
