@@ -26,9 +26,6 @@ public class WebdriverUtil {
                         options.addArguments("--remote-allow-origins=*");
                         options.addExtensions(new File("src/main/resources/uBlockChrome.crx"));
                         webDriverInstance = driver = new ChromeDriver(options);
-                    } else if (isFirefoxInstalled()) {
-                        WebDriverManager.firefoxdriver().setup();
-                        webDriverInstance = driver = new FirefoxDriver();
                     } else {
                         throw new RuntimeException("Sorry, your browser isn't supported.");
                     }
@@ -43,10 +40,6 @@ public class WebdriverUtil {
         return browserPath.isPresent();
     }
 
-    private static boolean isFirefoxInstalled() {
-        Optional<Path> browserPath = WebDriverManager.firefoxdriver().getBrowserPath();
-        return browserPath.isPresent();
-    }
     public static void quit() {
         webDriverInstance.quit();
         webDriverInstance = null;
