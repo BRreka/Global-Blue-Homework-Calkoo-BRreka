@@ -1,3 +1,5 @@
+package com.codecool;
+
 import com.codecool.pages.VatCalculatorPage;
 import com.codecool.util.WebdriverUtil;
 import org.junit.jupiter.api.*;
